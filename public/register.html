@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Создать Fauna ID</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+      margin: 0;
+      position: relative;
+    }
+    .logo-img {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      height: auto;
+    }
+    .register-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 360px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .id {
+      background: black;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .input-field {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .register-btn {
+      width: 100%;
+      padding: 12px;
+      margin: 20px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: black;
+      color: white;
+      transition: all 0.3s;
+    }
+    .register-btn:hover {
+      background-color: #333;
+    }
+    .error-message {
+      color: red;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <img src="faun.png" alt="Логотип" class="logo-img" />
+  <div class="register-container">
+    <h2 class="logo">Fauna <span class="id">ID</span></h2>
+    <h3>Создайте свой Fauna ID</h3>
+    
+    <form id="registerForm" method="POST" action="/register">
+      <input type="text" name="name" placeholder="Имя" class="input-field" required />
+      <input type="email" name="email" placeholder="Email" class="input-field" required />
+      <input type="password" name="password" placeholder="Пароль" class="input-field" required minlength="6" />
+      <input type="password" name="confirmPassword" placeholder="Подтвердите пароль" class="input-field" required />
+      <div id="errorMessage" class="error-message"></div>
+      <button type="submit" class="register-btn">Создать ID</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      const password = document.getElementsByName('password')[0].value;
+      const confirmPassword = document.getElementsByName('confirmPassword')[0].value;
+      const errorElement = document.getElementById('errorMessage');
+      
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        errorElement.textContent = "Пароли не совпадают!";
+      }
+    });
+  </script>
+</body>
+</html>

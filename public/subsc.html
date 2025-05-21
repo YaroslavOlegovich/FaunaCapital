@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тарифы Fauna Capital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Основные стили фона */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            background: url('fonec.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        
+        .overlay {
+            background-color: rgba(10, 4, 23, 0.85);
+            min-height: 100vh;
+        }
+        
+        /* Стили для карточки с картой */
+        .card-image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .card-image {
+            width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Стили для тарифных карточек */
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .pricing-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            width: 280px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .recommended {
+            border: 2px solid #4CAF50;
+            position: relative;
+        }
+        
+        .recommended-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .card-image-container {
+                flex-direction: column;
+            }
+            
+            .card-image {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+         .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #7B2CBF;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #9D4EDD;
+        }
+         .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Расстояние между лого и текстом */
+        }
+        
+        .logo {
+            width: 100px; /* Нужный вам размер */
+            height: auto; /* Сохраняет пропорции */
+            border-radius: 20%; /* Круглая форма (опционально) */
+            object-fit: contain; /* Чтобы изображение не искажалось */
+        }
+        
+        .bank-name {
+            font-size: 1.5rem; /* Размер текста логотипа */
+            margin: 0; /* Убирает стандартные отступы */
+        }
+         .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Стиль для активной кнопки "Главная" */
+        .nav-item {
+            background: rgba(123, 44, 191, 0.2); /* Полупрозрачный фиолетовый */
+            border: 2px solid #7B2CBF;
+        }
+        
+        .nav-item:hover {
+            background: rgba(123, 44, 191, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(123, 44, 191, 0.3);
+        }
+         .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #7B2CBF;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Эффект пульсации */
+    .btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+    .btn:hover {
+        background-color: #9D4EDD;
+        box-shadow: 0 5px 15px rgba(123, 44, 191, 0.4);
+    }
+
+    .btn:hover::after {
+        animation: pulse 1s;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.7;
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(20);
+            opacity: 0;
+        }
+    }
+
+    /* Специальный стиль для кнопки в рекомендуемом тарифе */
+    .recommended .btn {
+        background: linear-gradient(135deg, #7B2CBF 0%, #3A0CA3 100%);
+    }
+        
+        /* Эффект "пульсации" при наведении */
+        .nav-item:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .nav-item:hover:after {
+            animation: pulse 1s ease-out;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.1, 0.1) translate(-50%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(12, 12) translate(-50%);
+                opacity: 0;
+            }
+        }
+        
+        /* Для мобильных устройств */
+        @media (max-width: 768px) {
+            .nav-item {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Фоновое изображение подключается через CSS body -->
+   
+    <div class="overlay">
+        <header class="top-header">
+            <div class="logo-container">
+                <img src="log.jpg" class="logo" alt="Fauna Capital Logo">
+                <h1 class="bank-name">Fauna Capital</h1>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">Главная</a>
+            </nav>
+        </header>
+
+        <main class="subscription-page">
+            <!-- Блок с картой -->
+            <section class="card-section">
+                <h2>Ваша персональная карта Fauna Capital</h2>
+                <div class="card-image-container">
+                    <img src="card.jpg" alt="Дизайн карты Fauna Capital" class="card-image">
+                    <div class="card-features">
+                        <h3>Преимущества карты:</h3>
+                        <ul>
+                            <li>Кэшбек до 5% в криптовалюте</li>
+                            <li>Бесплатные переводы между криптоактивами</li>
+                            <li>Доступ к эксклюзивным торговым алгоритмам</li>
+                            <li>Приоритетная поддержка 24/7</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Тарифные планы -->
+            <section class="pricing-section">
+                <h2>Выберите подписку</h2>
+                <p class="section-subtitle">Доступ к мощным торговым алгоритмам и эксклюзивным возможностям</p>
+                
+                <div class="pricing-cards">
+                    <!-- Базовый тариф -->
+                    <div class="pricing-card">
+                        <h3>Starter</h3>
+                        <div class="price">$29<span>/месяц</span></div>
+                        <ul class="features">
+                            <li>Доступ к 3 базовым торговым алгоритмам</li>
+                            <li>До 5 сделок в день</li>
+                            <li>Кэшбек 1% в BTC</li>
+                            <li>Обычная скорость исполнения</li>
+                            <li>Базовые аналитические инструменты</li>
+                        </ul>
+                        <a href="register.html" class="btn">Начать</a>
+                    </div>
+                    
+                    <!-- Профессиональный тариф (рекомендуемый) -->
+                    <div class="pricing-card recommended">
+                        <div class="recommended-badge">Лучший выбор</div>
+                        <h3>Pro Trader</h3>
+                        <div class="price">$99<span>/месяц</span></div>
+                        <ul class="features">
+                            <li>15+ продвинутых алгоритмов</li>
+                            <li>Неограниченное количество сделок</li>
+                            <li>Кэшбек 3% в криптовалюте</li>
+                            <li>HFT-доступ (микросекундное исполнение)</li>
+                            <li>Эксклюзивные рыночные инсайты</li>
+                            <li>Персональный менеджер</li>
+                        </ul>
+                        <a href="register.html" class="btn">Выбрать</a>
+                    </div>
+                    
+                    <!-- VIP тариф -->
+                    <div class="pricing-card">
+                        <h3>VIP Institutional</h3>
+                        <div class="price">$499<span>/месяц</span></div>
+                        <ul class="features">
+                            <li>Все алгоритмы + кастомные решения</li>
+                            <li>Доступ к dark pool ликвидности</li>
+                            <li>Кэшбек 5% в криптовалюте</li>
+                            <li>Наносекундное исполнение (колокация)</li>
+                            <li>Эксклюзивные торговые стратегии</li>
+                            <li>Персональная команда поддержки</li>
+                            <li>Доступ к институциональным инструментам</li>
+                        </ul>
+                        <a href="register.html" class="btn">Выбрать</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Остальные секции остаются без изменений -->
+            ...
+            
+        </main>
+    </div>
+</body>
+</html>

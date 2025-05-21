@@ -1,0 +1,85 @@
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .id {
+            background: black;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+        }
+        .tabs button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .tabs .active {
+            font-weight: bold;
+            border-bottom: 2px solid black;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #b9a6fd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        .login-btn, .biometric-btn, .create-id {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-btn {
+            background-color: black;
+            color: rgb(220, 199, 255);
+        }
+        .biometric-btn, .create-id {
+            background-color: #d77fe9;
+        }
+        .login-options {
+            margin: 15px 0;
+            color: rgb(158, 96, 216);
+        }
+        .social-icons img {
+            width: 30px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .logo-img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 1000px; /* Измените размер по необходимости */
+            height: auto;
+        }
+        
